@@ -1,0 +1,357 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: 'Linux 服务器监控'
+      pages:
+        - name: '交互式概览'
+          widgets:
+            - type: hostnavigator
+              name: 'Linux 主机导航'
+              x: '0'
+              'y': '0'
+              width: '12'
+              height: '8'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXHST'
+                - type: INTEGER
+                  name: status
+                  value: '0'
+                - type: STRING
+                  name: host_tags.0.tag
+                  value: 'target'
+                - type: INTEGER
+                  name: host_tags.0.operator
+                  value: '1'
+                - type: STRING
+                  name: host_tags.0.value
+                  value: 'linux'
+            - type: itemnavigator
+              name: 'CPU 监控项'
+              x: '12'
+              'y': '0'
+              width: '24'
+              height: '1'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXCPU'
+                - type: STRING
+                  name: hostids._reference
+                  value: 'LXHST._hostid'
+                - type: STRING
+                  name: items.0
+                  value: 'CPU utilization'
+                - type: INTEGER
+                  name: show_lines
+                  value: '1'
+                - type: INTEGER
+                  name: show_problems
+                  value: '2'
+            - type: item
+              name: 'CPU 使用率'
+              x: '12'
+              'y': '1'
+              width: '13'
+              height: '3'
+              fields:
+                - type: STRING
+                  name: itemid._reference
+                  value: 'LXCPU._itemid'
+                - type: STRING
+                  name: description
+                  value: 'CPU 使用率'
+            - type: gauge
+              name: 'CPU 仪表'
+              x: '25'
+              'y': '1'
+              width: '11'
+              height: '3'
+              fields:
+                - type: STRING
+                  name: itemid._reference
+                  value: 'LXCPU._itemid'
+                - type: STRING
+                  name: description
+                  value: 'CPU 使用率'
+                - type: INTEGER
+                  name: show.0
+                  value: '1'
+                - type: INTEGER
+                  name: show.1
+                  value: '2'
+                - type: INTEGER
+                  name: show.2
+                  value: '3'
+                - type: INTEGER
+                  name: show.3
+                  value: '5'
+                - type: STRING
+                  name: value_arc_color
+                  value: '0EC9AC'
+                - type: INTEGER
+                  name: th_show_arc
+                  value: '1'
+                - type: STRING
+                  name: thresholds.0.threshold
+                  value: '70'
+                - type: STRING
+                  name: thresholds.0.color
+                  value: 'FFD54F'
+                - type: STRING
+                  name: thresholds.1.threshold
+                  value: '90'
+                - type: STRING
+                  name: thresholds.1.color
+                  value: 'FF465C'
+            - type: itemnavigator
+              name: '内存监控项'
+              x: '12'
+              'y': '4'
+              width: '24'
+              height: '1'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXMEM'
+                - type: STRING
+                  name: hostids._reference
+                  value: 'LXHST._hostid'
+                - type: STRING
+                  name: items.0
+                  value: 'Available memory in %'
+                - type: INTEGER
+                  name: show_lines
+                  value: '1'
+                - type: INTEGER
+                  name: show_problems
+                  value: '2'
+            - type: item
+              name: '可用内存比例'
+              x: '12'
+              'y': '5'
+              width: '13'
+              height: '3'
+              fields:
+                - type: STRING
+                  name: itemid._reference
+                  value: 'LXMEM._itemid'
+                - type: STRING
+                  name: description
+                  value: '可用内存比例'
+            - type: gauge
+              name: '内存仪表'
+              x: '25'
+              'y': '5'
+              width: '11'
+              height: '3'
+              fields:
+                - type: STRING
+                  name: itemid._reference
+                  value: 'LXMEM._itemid'
+                - type: STRING
+                  name: description
+                  value: '可用内存比例'
+                - type: INTEGER
+                  name: show.0
+                  value: '1'
+                - type: INTEGER
+                  name: show.1
+                  value: '2'
+                - type: INTEGER
+                  name: show.2
+                  value: '3'
+                - type: INTEGER
+                  name: show.3
+                  value: '5'
+                - type: STRING
+                  name: value_arc_color
+                  value: 'FF465C'
+                - type: INTEGER
+                  name: th_show_arc
+                  value: '1'
+                - type: STRING
+                  name: thresholds.0.threshold
+                  value: '10'
+                - type: STRING
+                  name: thresholds.0.color
+                  value: 'FFD54F'
+                - type: STRING
+                  name: thresholds.1.threshold
+                  value: '25'
+                - type: STRING
+                  name: thresholds.1.color
+                  value: '0EC9AC'
+                - type: INTEGER
+                  name: angle
+                  value: '270'
+            - type: honeycomb
+              name: 'Linux 主机 CPU 蜂窝图'
+              x: '0'
+              'y': '8'
+              width: '36'
+              height: '4'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXHEX'
+                - type: STRING
+                  name: host_tags.0.tag
+                  value: 'target'
+                - type: INTEGER
+                  name: host_tags.0.operator
+                  value: '1'
+                - type: STRING
+                  name: host_tags.0.value
+                  value: 'linux'
+                - type: STRING
+                  name: items.0
+                  value: 'CPU utilization'
+                - type: INTEGER
+                  name: primary_label_bold
+                  value: '1'
+                - type: STRING
+                  name: primary_label_color
+                  value: '102A43'
+                - type: STRING
+                  name: secondary_label_color
+                  value: '102A43'
+                - type: STRING
+                  name: bg_color
+                  value: '0EC9AC'
+                - type: INTEGER
+                  name: interpolation
+                  value: '0'
+                - type: STRING
+                  name: thresholds.0.threshold
+                  value: '70'
+                - type: STRING
+                  name: thresholds.0.color
+                  value: 'FFD54F'
+                - type: STRING
+                  name: thresholds.1.threshold
+                  value: '90'
+                - type: STRING
+                  name: thresholds.1.color
+                  value: 'FF465C'
+            - type: tophosts
+              name: 'Linux 主机 CPU 排行'
+              x: '36'
+              'y': '0'
+              width: '36'
+              height: '4'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXTOP'
+                - type: STRING
+                  name: tags.0.tag
+                  value: 'target'
+                - type: INTEGER
+                  name: tags.0.operator
+                  value: '1'
+                - type: STRING
+                  name: tags.0.value
+                  value: 'linux'
+                - type: INTEGER
+                  name: column
+                  value: '1'
+                - type: INTEGER
+                  name: show_lines
+                  value: '5'
+                - type: INTEGER
+                  name: columns.0.data
+                  value: '2'
+                - type: STRING
+                  name: columns.0.name
+                  value: '主机'
+                - type: INTEGER
+                  name: columns.1.data
+                  value: '1'
+                - type: STRING
+                  name: columns.1.name
+                  value: 'CPU 使用率'
+                - type: STRING
+                  name: columns.1.item
+                  value: 'CPU utilization'
+                - type: INTEGER
+                  name: columns.1.display
+                  value: '3'
+                - type: STRING
+                  name: columns.1.min
+                  value: '0'
+                - type: STRING
+                  name: columns.1.max
+                  value: '100'
+                - type: STRING
+                  name: columns.1.base_color
+                  value: '0EC9AC'
+                - type: STRING
+                  name: columnsthresholds.1.threshold.0
+                  value: '70'
+                - type: STRING
+                  name: columnsthresholds.1.color.0
+                  value: 'FFD54F'
+                - type: STRING
+                  name: columnsthresholds.1.threshold.1
+                  value: '90'
+                - type: STRING
+                  name: columnsthresholds.1.color.1
+                  value: 'FF465C'
+            - type: svggraph
+              name: '所选主机的网络流量'
+              x: '36'
+              'y': '4'
+              width: '36'
+              height: '5'
+              fields:
+                - type: STRING
+                  name: reference
+                  value: 'LXNET'
+                - type: STRING
+                  name: time_period._reference
+                  value: 'DASHBOARD._timeperiod'
+                - type: STRING
+                  name: ds.0.hosts.0
+                  value: '*'
+                - type: STRING
+                  name: ds.0.items.0
+                  value: 'Interface *: Bits received'
+                - type: STRING
+                  name: ds.0.override_hostid._reference
+                  value: 'LXHST._hostid'
+                - type: STRING
+                  name: ds.0.color
+                  value: '0EC9AC'
+                - type: STRING
+                  name: ds.0.data_set_label
+                  value: '接收'
+                - type: STRING
+                  name: ds.1.hosts.0
+                  value: '*'
+                - type: STRING
+                  name: ds.1.items.0
+                  value: 'Interface *: Bits sent'
+                - type: STRING
+                  name: ds.1.override_hostid._reference
+                  value: 'LXHST._hostid'
+                - type: STRING
+                  name: ds.1.color
+                  value: '42A5F5'
+                - type: STRING
+                  name: ds.1.data_set_label
+                  value: '发送'
+            - type: problemsbysv
+              name: '所选主机的告警级别分布'
+              x: '36'
+              'y': '9'
+              width: '36'
+              height: '3'
+              fields:
+                - type: STRING
+                  name: hostids._reference
+                  value: 'LXHST._hostids'
+                - type: INTEGER
+                  name: show_type
+                  value: '1'

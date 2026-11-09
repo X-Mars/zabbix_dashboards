@@ -1,0 +1,155 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: '网站浏览器性能'
+      auto_start: 'NO'
+      pages:
+        - name: '运行概览'
+          widgets:
+            - type: hostnavigator
+              name: '按群组选择目标'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '12'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'browser'}
+            - type: svggraph
+              name: '页面加载与 DOM 就绪'
+              x: '14'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAB'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Website * Navigation load event time'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Website * Navigation domContentLoaded time'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: 'DNS、TCP 与 TLS 耗时'
+              x: '43'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Website * Navigation DNS lookup time'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Website * Navigation TCP handshake time'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Website * Navigation TLS negotiation time'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+            - type: svggraph
+              name: '请求与响应耗时'
+              x: '14'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Website * Navigation request time'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Website * Navigation response time'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: '导航传输与正文大小'
+              x: '43'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Website * Navigation transfer size'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Website * Navigation encodedBody size'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Website * Navigation decodedBody size'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZDAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+            - type: topitems
+              name: '最近页面加载耗时'
+              x: '14'
+              'y': '8'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: hostids._reference, value: 'ZDAAA._hostids'}
+                - {type: INTEGER, name: layout, value: '1'}
+                - {type: INTEGER, name: host_ordering_limit, value: '1'}
+                - {type: INTEGER, name: item_ordering_order_by, value: '3'}
+                - {type: INTEGER, name: item_ordering_order, value: '2'}
+                - {type: INTEGER, name: item_ordering_limit, value: '10'}
+                - {type: STRING, name: columns.0.items.0, value: 'Website * Navigation load event time'}
+            - type: problems
+              name: '当前问题'
+              x: '43'
+              'y': '8'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZDAAF'}
+                - {type: STRING, name: hostids._reference, value: 'ZDAAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}

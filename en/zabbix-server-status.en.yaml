@@ -1,0 +1,379 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: 'Zabbix Server Status'
+      auto_start: 'NO'
+      pages:
+        - name: 'Platform health'
+          widgets:
+            - type: hostnavigator
+              name: 'Zabbix hosts'
+              x: '0'
+              'y': '0'
+              width: '13'
+              height: '5'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPHST'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'zabbix'}
+            - type: systeminfo
+              name: 'Local instance system information'
+              x: '13'
+              'y': '0'
+              width: '27'
+              height: '5'
+              fields:
+                - {type: INTEGER, name: rf_rate, value: '60'}
+            - type: tophosts
+              name: 'Selected server metrics'
+              x: '40'
+              'y': '0'
+              width: '32'
+              height: '2'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPSNP'}
+                - {type: STRING, name: hostids._reference, value: 'ZPHST._hostids'}
+                - {type: INTEGER, name: maintenance, value: '1'}
+                - {type: INTEGER, name: show_lines, value: '1'}
+                - {type: INTEGER, name: column, value: '1'}
+                - {type: INTEGER, name: columns.0.data, value: '2'}
+                - {type: STRING, name: columns.0.name, value: 'Host'}
+                - {type: STRING, name: columns.1.name, value: 'Version'}
+                - {type: INTEGER, name: columns.1.data, value: '1'}
+                - {type: STRING, name: columns.1.item, value: 'Version'}
+                - {type: INTEGER, name: columns.1.display_value_as, value: '1'}
+                - {type: STRING, name: columns.2.name, value: 'Processed rate'}
+                - {type: INTEGER, name: columns.2.data, value: '1'}
+                - {type: STRING, name: columns.2.item, value: 'Number of processed values per second'}
+                - {type: STRING, name: columns.3.name, value: 'Queue'}
+                - {type: INTEGER, name: columns.3.data, value: '1'}
+                - {type: STRING, name: columns.3.item, value: 'Queue'}
+                - {type: INTEGER, name: columns.3.decimal_places, value: '0'}
+                - {type: STRING, name: columns.4.name, value: 'Delayed ≥10 min'}
+                - {type: INTEGER, name: columns.4.data, value: '1'}
+                - {type: STRING, name: columns.4.item, value: 'Queue over 10 minutes'}
+                - {type: INTEGER, name: columns.4.decimal_places, value: '0'}
+            - type: problems
+              name: 'Current problems'
+              x: '40'
+              'y': '2'
+              width: '32'
+              height: '3'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPPBL'}
+                - {type: STRING, name: hostids._reference, value: 'ZPHST._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_lines, value: '6'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+            - type: svggraph
+              name: 'Collection and database write rates'
+              x: '0'
+              'y': '5'
+              width: '36'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPVPS'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Number of processed values per second'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Number of values synchronized with the database per second'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+            - type: svggraph
+              name: 'Collection delays and preprocessing queue'
+              x: '36'
+              'y': '5'
+              width: '36'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPQUE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Queue'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Queue over 10 minutes'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Preprocessing queue'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+            - type: svggraph
+              name: 'Collector and worker busy time'
+              x: '0'
+              'y': '9'
+              width: '36'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPBUS'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Utilization of agent poller data collector processes, in %'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Utilization of history syncer internal processes, in %'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Utilization of preprocessing worker internal processes, in %'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+            - type: svggraph
+              name: 'Cache utilization'
+              x: '36'
+              'y': '9'
+              width: '36'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZPCAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: lefty_max, value: '100'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Configuration cache, % used'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Value cache, % used'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'History write cache, % used'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: STRING, name: ds.3.hosts.0, value: '*'}
+                - {type: STRING, name: ds.3.items.0, value: 'Trend write cache, % used'}
+                - {type: STRING, name: ds.3.override_hostid._reference, value: 'ZPHST._hostid'}
+                - {type: STRING, name: ds.3.color, value: 'CD7227'}
+                - {type: INTEGER, name: ds.3.width, value: '2'}
+                - {type: INTEGER, name: ds.3.fill, value: '0'}
+        - name: 'Server resources'
+          widgets:
+            - type: hostnavigator
+              name: 'Zabbix hosts'
+              x: '0'
+              'y': '0'
+              width: '13'
+              height: '15'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRHST'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'zabbix'}
+            - type: hostcard
+              name: 'Host and agent status'
+              x: '13'
+              'y': '0'
+              width: '22'
+              height: '3'
+              fields:
+                - {type: STRING, name: hostid._reference, value: 'ZRHST._hostid'}
+                - {type: INTEGER, name: sections.0, value: '3'}
+                - {type: INTEGER, name: sections.1, value: '4'}
+                - {type: INTEGER, name: sections.2, value: '2'}
+            - type: tophosts
+              name: 'Latest metrics'
+              x: '35'
+              'y': '0'
+              width: '37'
+              height: '3'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRSNP'}
+                - {type: STRING, name: hostids._reference, value: 'ZRHST._hostids'}
+                - {type: INTEGER, name: maintenance, value: '1'}
+                - {type: INTEGER, name: show_lines, value: '1'}
+                - {type: INTEGER, name: column, value: '1'}
+                - {type: INTEGER, name: columns.0.data, value: '2'}
+                - {type: STRING, name: columns.0.name, value: 'Host'}
+                - {type: STRING, name: columns.1.name, value: 'Uptime'}
+                - {type: INTEGER, name: columns.1.data, value: '1'}
+                - {type: STRING, name: columns.1.item, value: 'System uptime'}
+                - {type: INTEGER, name: columns.1.decimal_places, value: '0'}
+                - {type: STRING, name: columns.2.name, value: 'Logical CPUs'}
+                - {type: INTEGER, name: columns.2.data, value: '1'}
+                - {type: STRING, name: columns.2.item, value: 'Number of CPUs'}
+                - {type: INTEGER, name: columns.2.decimal_places, value: '0'}
+                - {type: STRING, name: columns.3.name, value: 'Total memory'}
+                - {type: INTEGER, name: columns.3.data, value: '1'}
+                - {type: STRING, name: columns.3.item, value: 'Total memory'}
+                - {type: STRING, name: columns.4.name, value: 'Logged-in users'}
+                - {type: INTEGER, name: columns.4.data, value: '1'}
+                - {type: STRING, name: columns.4.item, value: 'Number of logged in users'}
+                - {type: INTEGER, name: columns.4.decimal_places, value: '0'}
+            - type: svggraph
+              name: 'CPU and memory utilization'
+              x: '13'
+              'y': '3'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRCPU'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'CPU utilization'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Memory utilization'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+            - type: svggraph
+              name: 'Load averages'
+              x: '42'
+              'y': '3'
+              width: '30'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRLDA'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Load average (1m avg)'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Load average (5m avg)'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Load average (15m avg)'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+            - type: svggraph
+              name: 'Filesystem space utilization'
+              x: '13'
+              'y': '7'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRFSP'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: lefty_max, value: '100'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'FS *: Space: Used, in %'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+            - type: svggraph
+              name: 'Disk read and write throughput'
+              x: '42'
+              'y': '7'
+              width: '30'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRIOP'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: '*: Disk read throughput'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: '*: Disk write throughput'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+            - type: svggraph
+              name: 'Network traffic'
+              x: '13'
+              'y': '11'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRNET'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '3'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Interface *: Bits received'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Interface *: Bits sent'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZRHST._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+            - type: problems
+              name: 'Current problems'
+              x: '42'
+              'y': '11'
+              width: '30'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZRPBL'}
+                - {type: STRING, name: hostids._reference, value: 'ZRHST._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_lines, value: '6'}
+                - {type: INTEGER, name: show_opdata, value: '2'}

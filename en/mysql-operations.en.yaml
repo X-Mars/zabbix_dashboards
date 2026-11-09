@@ -1,0 +1,284 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: 'MySQL Performance and Replication'
+      auto_start: 'NO'
+      pages:
+        - name: 'Workload and connections'
+          widgets:
+            - type: hostnavigator
+              name: 'Targets by group'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '14'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'mysql'}
+            - type: hostcard
+              name: 'Selected host'
+              x: '14'
+              'y': '0'
+              width: '19'
+              height: '2'
+              fields:
+                - {type: STRING, name: hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: INTEGER, name: sections.0, value: '3'}
+                - {type: INTEGER, name: sections.1, value: '4'}
+            - type: tophosts
+              name: 'Latest metrics'
+              x: '33'
+              'y': '0'
+              width: '39'
+              height: '2'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAB'}
+                - {type: STRING, name: hostids._reference, value: 'ZFAAA._hostids'}
+                - {type: INTEGER, name: maintenance, value: '1'}
+                - {type: INTEGER, name: show_lines, value: '1'}
+                - {type: INTEGER, name: column, value: '1'}
+                - {type: INTEGER, name: columns.0.data, value: '2'}
+                - {type: STRING, name: columns.0.name, value: 'Host'}
+                - {type: INTEGER, name: columns.1.data, value: '1'}
+                - {type: STRING, name: columns.1.name, value: 'Status'}
+                - {type: STRING, name: columns.1.item, value: 'Status'}
+                - {type: INTEGER, name: columns.1.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.2.data, value: '1'}
+                - {type: STRING, name: columns.2.name, value: 'Version'}
+                - {type: STRING, name: columns.2.item, value: 'Version'}
+                - {type: INTEGER, name: columns.2.display_value_as, value: '1'}
+                - {type: INTEGER, name: columns.3.data, value: '1'}
+                - {type: STRING, name: columns.3.name, value: 'Uptime'}
+                - {type: STRING, name: columns.3.item, value: 'Uptime'}
+                - {type: INTEGER, name: columns.3.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.4.data, value: '1'}
+                - {type: STRING, name: columns.4.name, value: 'Running threads'}
+                - {type: STRING, name: columns.4.item, value: 'Threads running'}
+                - {type: INTEGER, name: columns.4.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.5.data, value: '1'}
+                - {type: STRING, name: columns.5.name, value: 'Slow queries/s'}
+                - {type: STRING, name: columns.5.item, value: 'Slow queries per second'}
+            - type: svggraph
+              name: 'Query and question rates'
+              x: '14'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Queries per second'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Questions per second'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: 'Connected and running threads'
+              x: '43'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Threads connected'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Threads running'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: 'Slow queries and aborted connections'
+              x: '14'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Slow queries per second'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Aborted connections per second'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Aborted clients per second'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+            - type: svggraph
+              name: 'Network throughput'
+              x: '43'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAF'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Bytes received'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Bytes sent'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZFAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: problems
+              name: 'Current problems'
+              x: '14'
+              'y': '10'
+              width: '58'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFAAG'}
+                - {type: STRING, name: hostids._reference, value: 'ZFAAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}
+        - name: 'InnoDB and replication'
+          widgets:
+            - type: hostnavigator
+              name: 'Targets by group'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '12'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'mysql'}
+            - type: svggraph
+              name: 'Buffer pool utilization and efficiency'
+              x: '14'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAB'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: lefty_max, value: '100'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Buffer pool utilization'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFBAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Buffer pool efficiency'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZFBAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: 'Cumulative row lock wait time'
+              x: '43'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'InnoDB row lock time'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFBAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: 'Replication lag (when configured)'
+              x: '14'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Replication Seconds Behind Master *'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFBAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: 'Database sizes'
+              x: '43'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Size of database *'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZFBAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: problems
+              name: 'Current problems'
+              x: '14'
+              'y': '8'
+              width: '58'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZFBAF'}
+                - {type: STRING, name: hostids._reference, value: 'ZFBAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}

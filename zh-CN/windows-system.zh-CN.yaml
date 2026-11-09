@@ -1,0 +1,309 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: 'Windows 系统监控'
+      auto_start: 'NO'
+      pages:
+        - name: '系统与计算'
+          widgets:
+            - type: hostnavigator
+              name: '按群组选择目标'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '14'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'windows'}
+            - type: hostcard
+              name: '所选主机'
+              x: '14'
+              'y': '0'
+              width: '19'
+              height: '2'
+              fields:
+                - {type: STRING, name: hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: INTEGER, name: sections.0, value: '3'}
+                - {type: INTEGER, name: sections.1, value: '4'}
+            - type: tophosts
+              name: '最新指标'
+              x: '33'
+              'y': '0'
+              width: '39'
+              height: '2'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAB'}
+                - {type: STRING, name: hostids._reference, value: 'ZAAAA._hostids'}
+                - {type: INTEGER, name: maintenance, value: '1'}
+                - {type: INTEGER, name: show_lines, value: '1'}
+                - {type: INTEGER, name: column, value: '1'}
+                - {type: INTEGER, name: columns.0.data, value: '2'}
+                - {type: STRING, name: columns.0.name, value: '主机'}
+                - {type: INTEGER, name: columns.1.data, value: '1'}
+                - {type: STRING, name: columns.1.name, value: 'Agent 可用性'}
+                - {type: STRING, name: columns.1.item, value: 'Zabbix agent availability'}
+                - {type: INTEGER, name: columns.1.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.2.data, value: '1'}
+                - {type: STRING, name: columns.2.name, value: '运行时长'}
+                - {type: STRING, name: columns.2.item, value: 'Uptime'}
+                - {type: INTEGER, name: columns.2.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.3.data, value: '1'}
+                - {type: STRING, name: columns.3.name, value: '逻辑处理器'}
+                - {type: STRING, name: columns.3.item, value: 'Number of cores'}
+                - {type: INTEGER, name: columns.3.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.4.data, value: '1'}
+                - {type: STRING, name: columns.4.name, value: '总内存'}
+                - {type: STRING, name: columns.4.item, value: 'Total memory'}
+                - {type: INTEGER, name: columns.4.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.5.data, value: '1'}
+                - {type: STRING, name: columns.5.name, value: '内存使用率'}
+                - {type: STRING, name: columns.5.item, value: 'Memory utilization'}
+            - type: svggraph
+              name: 'CPU 时间分布'
+              x: '14'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'CPU utilization'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'CPU user time'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'CPU privileged time'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: STRING, name: ds.3.hosts.0, value: '*'}
+                - {type: STRING, name: ds.3.items.0, value: 'CPU DPC time'}
+                - {type: STRING, name: ds.3.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.3.color, value: 'CD7227'}
+                - {type: INTEGER, name: ds.3.fill, value: '0'}
+                - {type: INTEGER, name: ds.3.width, value: '2'}
+            - type: svggraph
+              name: 'CPU 队列长度'
+              x: '43'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'CPU queue length'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: '物理内存与分页文件使用率'
+              x: '14'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: lefty_max, value: '100'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Memory utilization'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Used swap space in %'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: '进程与线程'
+              x: '43'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAF'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Number of processes'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Number of threads'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZAAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: problems
+              name: '当前问题'
+              x: '14'
+              'y': '10'
+              width: '58'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZAAAG'}
+                - {type: STRING, name: hostids._reference, value: 'ZAAAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}
+        - name: '存储与网络'
+          widgets:
+            - type: hostnavigator
+              name: '按群组选择目标'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '12'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'windows'}
+            - type: svggraph
+              name: '卷空间使用率'
+              x: '14'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAB'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: lefty_max, value: '100'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'FS *: Space: Used, in %'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: '磁盘请求等待时间'
+              x: '43'
+              'y': '0'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: '*: Disk read request avg waiting time'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: '*: Disk write request avg waiting time'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: '网卡收发流量'
+              x: '14'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Interface *: Bits received'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Interface *: Bits sent'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: '网卡错误和丢弃包'
+              x: '43'
+              'y': '4'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Interface *: Inbound packets with errors'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Interface *: Outbound packets with errors'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Interface *: Inbound packets discarded'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: STRING, name: ds.3.hosts.0, value: '*'}
+                - {type: STRING, name: ds.3.items.0, value: 'Interface *: Outbound packets discarded'}
+                - {type: STRING, name: ds.3.override_hostid._reference, value: 'ZABAA._hostid'}
+                - {type: STRING, name: ds.3.color, value: 'CD7227'}
+                - {type: INTEGER, name: ds.3.fill, value: '0'}
+                - {type: INTEGER, name: ds.3.width, value: '2'}
+            - type: problems
+              name: '当前问题'
+              x: '14'
+              'y': '8'
+              width: '58'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZABAF'}
+                - {type: STRING, name: hostids._reference, value: 'ZABAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}

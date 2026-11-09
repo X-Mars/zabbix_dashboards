@@ -1,0 +1,236 @@
+zabbix_export:
+  version: '8.0'
+  dashboards:
+    - name: 'Docker 引擎与容器'
+      auto_start: 'NO'
+      pages:
+        - name: '运行概览'
+          widgets:
+            - type: hostnavigator
+              name: '按群组选择目标'
+              x: '0'
+              'y': '0'
+              width: '14'
+              height: '18'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAA'}
+                - {type: INTEGER, name: status, value: '0'}
+                - {type: INTEGER, name: group_by.0.attribute, value: '0'}
+                - {type: STRING, name: host_tags.0.tag, value: 'target'}
+                - {type: INTEGER, name: host_tags.0.operator, value: '1'}
+                - {type: STRING, name: host_tags.0.value, value: 'docker'}
+            - type: hostcard
+              name: '所选主机'
+              x: '14'
+              'y': '0'
+              width: '19'
+              height: '2'
+              fields:
+                - {type: STRING, name: hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: INTEGER, name: sections.0, value: '3'}
+                - {type: INTEGER, name: sections.1, value: '4'}
+            - type: tophosts
+              name: '最新指标'
+              x: '33'
+              'y': '0'
+              width: '39'
+              height: '2'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAB'}
+                - {type: STRING, name: hostids._reference, value: 'ZIAAA._hostids'}
+                - {type: INTEGER, name: maintenance, value: '1'}
+                - {type: INTEGER, name: show_lines, value: '1'}
+                - {type: INTEGER, name: column, value: '1'}
+                - {type: INTEGER, name: columns.0.data, value: '2'}
+                - {type: STRING, name: columns.0.name, value: '主机'}
+                - {type: INTEGER, name: columns.1.data, value: '1'}
+                - {type: STRING, name: columns.1.name, value: '引擎探测'}
+                - {type: STRING, name: columns.1.item, value: 'Ping'}
+                - {type: INTEGER, name: columns.1.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.2.data, value: '1'}
+                - {type: STRING, name: columns.2.name, value: '引擎版本'}
+                - {type: STRING, name: columns.2.item, value: 'Server version'}
+                - {type: INTEGER, name: columns.2.display_value_as, value: '1'}
+                - {type: INTEGER, name: columns.3.data, value: '1'}
+                - {type: STRING, name: columns.3.name, value: '运行容器'}
+                - {type: STRING, name: columns.3.item, value: 'Containers running'}
+                - {type: INTEGER, name: columns.3.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.4.data, value: '1'}
+                - {type: STRING, name: columns.4.name, value: '停止容器'}
+                - {type: STRING, name: columns.4.item, value: 'Containers stopped'}
+                - {type: INTEGER, name: columns.4.decimal_places, value: '0'}
+                - {type: INTEGER, name: columns.5.data, value: '1'}
+                - {type: STRING, name: columns.5.name, value: '镜像数'}
+                - {type: STRING, name: columns.5.item, value: 'Images total'}
+                - {type: INTEGER, name: columns.5.decimal_places, value: '0'}
+            - type: svggraph
+              name: '容器数量与状态'
+              x: '14'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAC'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Containers total'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Containers running'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Containers stopped'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+                - {type: STRING, name: ds.3.hosts.0, value: '*'}
+                - {type: STRING, name: ds.3.items.0, value: 'Containers paused'}
+                - {type: STRING, name: ds.3.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.3.color, value: 'CD7227'}
+                - {type: INTEGER, name: ds.3.fill, value: '0'}
+                - {type: INTEGER, name: ds.3.width, value: '2'}
+            - type: svggraph
+              name: '镜像、容器及卷占用'
+              x: '43'
+              'y': '2'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAD'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Images size'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Containers size'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+                - {type: STRING, name: ds.2.hosts.0, value: '*'}
+                - {type: STRING, name: ds.2.items.0, value: 'Volumes size'}
+                - {type: STRING, name: ds.2.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.2.color, value: '8A53BC'}
+                - {type: INTEGER, name: ds.2.fill, value: '0'}
+                - {type: INTEGER, name: ds.2.width, value: '2'}
+            - type: svggraph
+              name: '容器 CPU 使用率'
+              x: '14'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAE'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Container *: CPU percent usage'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: '容器内存使用量'
+              x: '43'
+              'y': '6'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAF'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Container *: Memory usage total'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+            - type: svggraph
+              name: '容器网络收发吞吐'
+              x: '14'
+              'y': '10'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAG'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Container *: Networks bytes received per second'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: STRING, name: ds.1.hosts.0, value: '*'}
+                - {type: STRING, name: ds.1.items.0, value: 'Container *: Networks bytes sent per second'}
+                - {type: STRING, name: ds.1.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.1.color, value: '3478D3'}
+                - {type: INTEGER, name: ds.1.fill, value: '0'}
+                - {type: INTEGER, name: ds.1.width, value: '2'}
+            - type: svggraph
+              name: '容器累计重启次数'
+              x: '43'
+              'y': '10'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAH'}
+                - {type: STRING, name: time_period._reference, value: 'DASHBOARD._timeperiod'}
+                - {type: INTEGER, name: legend_columns, value: '2'}
+                - {type: INTEGER, name: legend_lines, value: '2'}
+                - {type: STRING, name: lefty_min, value: '0'}
+                - {type: STRING, name: ds.0.hosts.0, value: '*'}
+                - {type: STRING, name: ds.0.items.0, value: 'Container *: Restart count'}
+                - {type: STRING, name: ds.0.override_hostid._reference, value: 'ZIAAA._hostid'}
+                - {type: STRING, name: ds.0.color, value: '008E83'}
+                - {type: INTEGER, name: ds.0.fill, value: '0'}
+                - {type: INTEGER, name: ds.0.width, value: '2'}
+                - {type: INTEGER, name: ds.0.type, value: '2'}
+            - type: topitems
+              name: '容器健康状态'
+              x: '14'
+              'y': '14'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: hostids._reference, value: 'ZIAAA._hostids'}
+                - {type: INTEGER, name: layout, value: '1'}
+                - {type: INTEGER, name: host_ordering_limit, value: '1'}
+                - {type: INTEGER, name: item_ordering_order_by, value: '2'}
+                - {type: INTEGER, name: item_ordering_order, value: '3'}
+                - {type: INTEGER, name: item_ordering_limit, value: '10'}
+                - {type: STRING, name: columns.0.items.0, value: 'Container *: Health status'}
+            - type: problems
+              name: '当前问题'
+              x: '43'
+              'y': '14'
+              width: '29'
+              height: '4'
+              fields:
+                - {type: STRING, name: reference, value: 'ZIAAI'}
+                - {type: STRING, name: hostids._reference, value: 'ZIAAA._hostids'}
+                - {type: INTEGER, name: show, value: '3'}
+                - {type: INTEGER, name: show_opdata, value: '2'}
+                - {type: INTEGER, name: show_lines, value: '10'}
