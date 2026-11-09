@@ -1,5 +1,7 @@
 # Zabbix 8.0 仪表盘模板
 
+**简体中文** · [English](README_en.md)
+
 本项目提供 13 套可导入的 Zabbix 8.0 全局仪表盘。每套均有简体中文和英文源文件，可按需导入，也可同时导入两个版本。
 
 ## 导入与使用
@@ -18,6 +20,10 @@
 
 [简体中文源文件](zh-CN/linux-server-monitoring.zh-CN.yaml) · [英文源文件](en/linux-server-monitoring.en.yaml)
 
+![Linux 服务器监控简体中文版截图](images/linux-server-monitoring.zh-CN.png)
+
+![Linux 服务器监控英文版截图](images/linux-server-monitoring.en.png)
+
 ### 2. Linux 主机性能分析
 
 适合排查单台主机的性能瓶颈。主机概览页显示系统负载、处理器与输入输出等待、内存、交换空间和进程。存储与网络页显示挂载点容量、空闲索引节点、磁盘吞吐与等待时间，以及网卡流量、错误和丢弃包。
@@ -25,6 +31,10 @@
 关联 Linux 系统监控模板，主机标签为 `target=linux`。存储与网络页需要相应的自动发现数据。
 
 [简体中文源文件](zh-CN/linux-host-performance.zh-CN.yaml) · [英文源文件](en/linux-host-performance.en.yaml)
+
+![Linux 主机性能分析简体中文版截图](images/linux-host-performance.zh-CN.png)
+
+![Linux 主机性能分析英文版截图](images/linux-host-performance.en.png)
 
 ### 3. Zabbix 服务端全景状态
 
@@ -57,6 +67,10 @@
 关联 ICMP 探测模板，主机标签为 `target=icmp`，并配置可探测的目标地址。
 
 [简体中文源文件](zh-CN/icmp-reachability.zh-CN.yaml) · [英文源文件](en/icmp-reachability.en.yaml)
+
+![ICMP 可达性与延迟简体中文版截图](images/icmp-reachability.zh-CN.png)
+
+![ICMP 可达性与延迟英文版截图](images/icmp-reachability.en.png)
 
 ### 7. 网站浏览器性能
 
@@ -105,6 +119,10 @@
 关联基于 Zabbix 采集代理 2 的 Docker 模板，主机标签为 `target=docker`。采集端需要访问 Docker 接口并启用容器发现。
 
 [简体中文源文件](zh-CN/docker-runtime.zh-CN.yaml) · [英文源文件](en/docker-runtime.en.yaml)
+
+![Docker 引擎与容器简体中文版截图](images/docker-runtime.zh-CN.png)
+
+![Docker 引擎与容器英文版截图](images/docker-runtime.en.png)
 
 ### 13. VMware vSphere 主机与虚拟机
 
