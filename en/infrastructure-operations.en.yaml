@@ -1,0 +1,190 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: Infrastructure Problems and NOC
+    auto_start: 'NO'
+    pages:
+    - name: Incident overview
+      widgets:
+      - type: problemsbysv
+        name: Problems by severity
+        x: '0'
+        y: '0'
+        width: '72'
+        height: '3'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: problems
+        name: Current problems
+        x: '0'
+        y: '3'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPCUR
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: problems
+        name: Event history
+        x: '0'
+        y: '11'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPHIS
+        - type: INTEGER
+          name: show
+          value: '2'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+    - name: NOC overview
+      widgets:
+      - type: systeminfo
+        name: System information
+        x: '0'
+        y: '0'
+        width: '24'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCSYS
+      - type: problemsbysv
+        name: Problems by severity
+        x: '24'
+        y: '0'
+        width: '48'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: tophosts
+        name: Highest Linux CPU utilization
+        x: '0'
+        y: '4'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCCPU
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Highest CPU utilization
+        - type: STRING
+          name: columns.1.item
+          value: CPU utilization
+      - type: problems
+        name: Current problems
+        x: '36'
+        y: '4'
+        width: '36'
+        height: '10'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCPRB
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: tophosts
+        name: Lowest available memory
+        x: '0'
+        y: '9'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCMEM
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '3'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Lowest available memory
+        - type: STRING
+          name: columns.1.item
+          value: Available memory in %

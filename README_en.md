@@ -2,7 +2,7 @@
 
 [简体中文](README.md) · **English**
 
-This project provides 13 importable global dashboards for Zabbix 8.0. Each dashboard has Simplified Chinese and English source files. You can import either version or both.
+This project provides 23 importable global dashboards for Zabbix 8.0. Each dashboard has Simplified Chinese and English source files. You can import either version or both.
 
 ## Import and use
 
@@ -132,6 +132,54 @@ Link the VMware hypervisor and guest monitoring templates. Use `target=vmware-hy
 
 [Simplified Chinese source](zh-CN/vmware-vsphere.zh-CN.yaml) · [English source](en/vmware-vsphere.en.yaml)
 
+### 14. Linux Server Status Rankings
+
+Rank Linux hosts by CPU utilization, available memory, CPU I/O wait and logged-in users. Recent problems include all hosts accessible to the current user. Rankings require the Linux template and `target=linux`; each table shows up to 10 hosts.
+
+[Chinese source](zh-CN/linux-server-rankings.zh-CN.yaml) · [English source](en/linux-server-rankings.en.yaml)
+
+### 15. Infrastructure Problems and NOC
+
+See severity counts, current problems and event history, or switch to the NOC page for system information, problems and Linux CPU and memory rankings. Problems cover all hosts accessible to the current user; Linux rankings require `target=linux`. Use Zabbix full-screen and slideshow controls for display.
+
+[Chinese source](zh-CN/infrastructure-operations.zh-CN.yaml) · [English source](en/infrastructure-operations.en.yaml)
+
+### 16. Switch Port Monitoring
+
+Select an SNMP device tagged `target=generic` to inspect discovered port administrative and operational status, inbound and outbound rates, and current problems. Each port table shows up to 50 items sorted by name; edit it to change the limit or select uplinks. Administrative status requires an item named `Interface *: Administrative status`. If the SNMP template does not collect it, extend discovery or change the item pattern.
+
+[Chinese source](zh-CN/switch-port-status.zh-CN.yaml) · [English source](en/switch-port-status.en.yaml)
+
+
+### 17. Graph Trees Explorer
+
+Inspired by the [Zabbix Graph Trees module](https://github.com/X-Mars/zabbix_modules/tree/master/zabbix_graphtrees), select a host in the group tree and choose a numeric item in each of four independent lists to compare graphs. Items are grouped by the `component` tag; untagged items appear under Uncategorized. Graphs share the dashboard time range and refresh every 10 seconds by default. No module or host tags are required; access follows the current user's permissions.
+
+[Chinese source](zh-CN/graph-trees.zh-CN.yaml) · [English source](en/graph-trees.en.yaml)
+
+The native dashboard differs from the module: it compares up to four independently selected items; item tag filters are configured by editing each navigator rather than entered dynamically. Tree search, synchronized tooltips across graphs and single-graph full screen are not provided. Lists can contain text items, so select numeric items for graphs. Host and item limits are 1000 and 500 respectively and can be changed in widget settings.
+
+Both language versions were imported into Zabbix 8.0.0. The Chinese frontend was checked with a simulated Linux host for host selection, linked item lists, independent item selection and graph rendering. Test samples were pushed once.
+
+## Additional dashboards
+
+These six Zabbix 8.0 dashboards use native widgets and can be imported alongside the existing templates. Layouts and filtering are adapted to Zabbix and may differ from other platforms.
+
+| Reference | Coverage | Files |
+| --- | --- | --- |
+| 11209 | Linux hosts, performance and Zabbix health | [中文](zh-CN/linux-server-overview.zh-CN.yaml) · [English](en/linux-server-overview.en.yaml) |
+| 5456 | Server CPU, memory, I/O, users, filesystems and events | [中文](zh-CN/server-status-tables.zh-CN.yaml) · [English](en/server-status-tables.en.yaml) |
+| 9711 | Switch port status and traffic | [中文](zh-CN/switch-ports-overview.zh-CN.yaml) · [English](en/switch-ports-overview.en.yaml) |
+| 7171 | Severity, current problems and event history | [中文](zh-CN/infrastructure-problems.zh-CN.yaml) · [English](en/infrastructure-problems.en.yaml) |
+| 10797 | VMware hosts, datastores and guests | [中文](zh-CN/vcenter-monitoring.zh-CN.yaml) · [English](en/vcenter-monitoring.en.yaml) |
+| 5122 | CPU, memory, four uplinks, environment, clocks and incidents | [中文](zh-CN/datacenter-tv.zh-CN.yaml) · [English](en/datacenter-tv.en.yaml) |
+
+Linux, switch and VMware views use `target=linux`, `target=generic`, and `target=vmware-hypervisor` / `target=vmware-guest` tags respectively. Switch administrative status requires item names matching `Interface *: Administrative status`. The 5122 uplinks match selected-device receive/send items `Interface *1/1*` through `Interface *1/4*`; temperature and battery match `*Temperature*` and `*UPS battery charge*`. Edit item patterns for your devices. The 5456 filesystem table does not guarantee sorting by utilization, and problem widgets cover all accessible hosts.
+
+All 12 language versions were imported into the specified Zabbix 8.0.0 environment. Frontend checks covered multi-host rankings, filesystems, 24 switch ports, four uplinks, environmental metrics, clocks, events and simulated VMware metrics. Test hosts are in `Dashboard Replica Test` and named `Replica TEST`; a datastore-capacity test item was also added to the existing simulated ESXi host. Samples were pushed once and do not continuously update or represent real devices.
+
 ## Validation
 
 All 38 pages across the 26 language variants were checked with data in the Zabbix 8.0.0 frontend. Linux, Zabbix server, network probes, websites, certificates, databases, and containers used collected data. MySQL was validated with MariaDB primary and replica instances, and Redis was validated with Valkey over the Redis protocol. Windows and VMware vSphere were validated with explicitly labeled simulated targets.
+
+The six new language versions imported successfully into Zabbix 8.0.0. Chinese pages were checked against live Linux metrics, current and resolved events, page navigation, and the SNMP test target’s operational status and traffic. Administrative status had no data in the test template; multi-host ranking could not be verified with only one matching Linux host.

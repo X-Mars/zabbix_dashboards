@@ -1,0 +1,60 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: 基础设施问题
+    auto_start: 'NO'
+    pages:
+    - name: 事件概览
+      widgets:
+      - type: problemsbysv
+        name: 问题级别分布
+        x: '0'
+        y: '0'
+        width: '72'
+        height: '3'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: problems
+        name: 当前问题
+        x: '0'
+        y: '3'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPCUR
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: problems
+        name: 事件历史
+        x: '0'
+        y: '11'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPHIS
+        - type: INTEGER
+          name: show
+          value: '2'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'

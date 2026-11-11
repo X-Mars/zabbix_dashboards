@@ -1,0 +1,200 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: Linux 服务器状态排行
+    auto_start: 'NO'
+    pages:
+    - name: 性能排行
+      widgets:
+      - type: tophosts
+        name: CPU 使用率最高
+        x: '0'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLCPO
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: CPU 使用率最高
+        - type: STRING
+          name: columns.1.item
+          value: CPU utilization
+      - type: tophosts
+        name: 可用内存最低
+        x: '36'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLMEM
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '3'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: 可用内存最低
+        - type: STRING
+          name: columns.1.item
+          value: Available memory in %
+      - type: tophosts
+        name: CPU I/O 等待最高
+        x: '0'
+        y: '5'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLIOW
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: CPU I/O 等待最高
+        - type: STRING
+          name: columns.1.item
+          value: CPU iowait time
+      - type: tophosts
+        name: 登录用户数最多
+        x: '36'
+        y: '5'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLUSR
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: 登录用户数最多
+        - type: STRING
+          name: columns.1.item
+          value: Number of logged in users
+      - type: problems
+        name: 最近问题
+        x: '0'
+        y: '10'
+        width: '72'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLPRB
+        - type: INTEGER
+          name: show
+          value: '1'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'

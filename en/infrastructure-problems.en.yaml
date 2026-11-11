@@ -1,0 +1,60 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: Infrastructure Problems
+    auto_start: 'NO'
+    pages:
+    - name: Incident overview
+      widgets:
+      - type: problemsbysv
+        name: Problems by severity
+        x: '0'
+        y: '0'
+        width: '72'
+        height: '3'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: problems
+        name: Current problems
+        x: '0'
+        y: '3'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPCUR
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: problems
+        name: Event history
+        x: '0'
+        y: '11'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPHIS
+        - type: INTEGER
+          name: show
+          value: '2'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'

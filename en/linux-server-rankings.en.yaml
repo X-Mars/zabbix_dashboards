@@ -1,0 +1,200 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: Linux Server Status Rankings
+    auto_start: 'NO'
+    pages:
+    - name: Performance rankings
+      widgets:
+      - type: tophosts
+        name: Highest CPU utilization
+        x: '0'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLCPO
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Highest CPU utilization
+        - type: STRING
+          name: columns.1.item
+          value: CPU utilization
+      - type: tophosts
+        name: Lowest available memory
+        x: '36'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLMEM
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '3'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Lowest available memory
+        - type: STRING
+          name: columns.1.item
+          value: Available memory in %
+      - type: tophosts
+        name: Highest CPU I/O wait
+        x: '0'
+        y: '5'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLIOW
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Highest CPU I/O wait
+        - type: STRING
+          name: columns.1.item
+          value: CPU iowait time
+      - type: tophosts
+        name: Most logged-in users
+        x: '36'
+        y: '5'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLUSR
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: Host
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: Most logged-in users
+        - type: STRING
+          name: columns.1.item
+          value: Number of logged in users
+      - type: problems
+        name: Recent problems
+        x: '0'
+        y: '10'
+        width: '72'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: FLPRB
+        - type: INTEGER
+          name: show
+          value: '1'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'

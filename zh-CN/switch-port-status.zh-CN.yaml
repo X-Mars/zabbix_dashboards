@@ -1,0 +1,168 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: 交换机端口监控
+    auto_start: 'NO'
+    pages:
+    - name: 端口状态与流量
+      widgets:
+      - type: hostnavigator
+        name: 按群组选择目标
+        x: '0'
+        y: '0'
+        width: '14'
+        height: '18'
+        fields:
+        - type: STRING
+          name: reference
+          value: ZBAAA
+        - type: INTEGER
+          name: status
+          value: '0'
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '0'
+        - type: STRING
+          name: host_tags.0.tag
+          value: target
+        - type: INTEGER
+          name: host_tags.0.operator
+          value: '1'
+        - type: STRING
+          name: host_tags.0.value
+          value: generic
+      - type: topitems
+        name: 管理状态
+        x: '14'
+        y: '0'
+        width: '29'
+        height: '8'
+        fields:
+        - type: STRING
+          name: hostids._reference
+          value: ZBAAA._hostids
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: host_ordering_limit
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_order_by
+          value: '2'
+        - type: INTEGER
+          name: item_ordering_order
+          value: '3'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: 'Interface *: Administrative status'
+      - type: topitems
+        name: 运行状态
+        x: '43'
+        y: '0'
+        width: '29'
+        height: '8'
+        fields:
+        - type: STRING
+          name: hostids._reference
+          value: ZBAAA._hostids
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: host_ordering_limit
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_order_by
+          value: '2'
+        - type: INTEGER
+          name: item_ordering_order
+          value: '3'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: 'Interface *: Operational status'
+      - type: topitems
+        name: 接收流量
+        x: '14'
+        y: '8'
+        width: '29'
+        height: '8'
+        fields:
+        - type: STRING
+          name: hostids._reference
+          value: ZBAAA._hostids
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: host_ordering_limit
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_order_by
+          value: '2'
+        - type: INTEGER
+          name: item_ordering_order
+          value: '3'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: 'Interface *: Bits received'
+      - type: topitems
+        name: 发送流量
+        x: '43'
+        y: '8'
+        width: '29'
+        height: '8'
+        fields:
+        - type: STRING
+          name: hostids._reference
+          value: ZBAAA._hostids
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: host_ordering_limit
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_order_by
+          value: '2'
+        - type: INTEGER
+          name: item_ordering_order
+          value: '3'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: 'Interface *: Bits sent'
+      - type: problems
+        name: 当前问题
+        x: '14'
+        y: '16'
+        width: '58'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: SWPRB
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+        - type: STRING
+          name: hostids._reference
+          value: ZBAAA._hostids

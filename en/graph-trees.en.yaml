@@ -1,0 +1,252 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: Graph Trees Explorer
+    auto_start: 'NO'
+    pages:
+    - name: Graph trees
+      widgets:
+      - type: hostnavigator
+        name: Host groups and hosts
+        x: '0'
+        y: '0'
+        width: '14'
+        height: '24'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTHST
+        - type: INTEGER
+          name: status
+          value: '0'
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '0'
+        - type: INTEGER
+          name: show_lines
+          value: '1000'
+      - type: itemnavigator
+        name: Choose item 1
+        x: '14'
+        y: '0'
+        width: '21'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTITA
+        - type: STRING
+          name: hostids._reference
+          value: GTHST._hostids
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '3'
+        - type: STRING
+          name: group_by.0.tag_name
+          value: component
+        - type: INTEGER
+          name: show_lines
+          value: '500'
+        - type: INTEGER
+          name: show_problems
+          value: '1'
+      - type: svggraph
+        name: Graph 1
+        x: '35'
+        y: '0'
+        width: '37'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTGRA
+        - type: INTEGER
+          name: rf_rate
+          value: '10'
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: ds.0.dataset_type
+          value: '0'
+        - type: STRING
+          name: ds.0.itemids.0._reference
+          value: GTITA._itemid
+        - type: STRING
+          name: ds.0.color.0
+          value: '008E83'
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+      - type: itemnavigator
+        name: Choose item 2
+        x: '14'
+        y: '6'
+        width: '21'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTITB
+        - type: STRING
+          name: hostids._reference
+          value: GTHST._hostids
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '3'
+        - type: STRING
+          name: group_by.0.tag_name
+          value: component
+        - type: INTEGER
+          name: show_lines
+          value: '500'
+        - type: INTEGER
+          name: show_problems
+          value: '1'
+      - type: svggraph
+        name: Graph 2
+        x: '35'
+        y: '6'
+        width: '37'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTGRB
+        - type: INTEGER
+          name: rf_rate
+          value: '10'
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: ds.0.dataset_type
+          value: '0'
+        - type: STRING
+          name: ds.0.itemids.0._reference
+          value: GTITB._itemid
+        - type: STRING
+          name: ds.0.color.0
+          value: 3478D3
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+      - type: itemnavigator
+        name: Choose item 3
+        x: '14'
+        y: '12'
+        width: '21'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTITC
+        - type: STRING
+          name: hostids._reference
+          value: GTHST._hostids
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '3'
+        - type: STRING
+          name: group_by.0.tag_name
+          value: component
+        - type: INTEGER
+          name: show_lines
+          value: '500'
+        - type: INTEGER
+          name: show_problems
+          value: '1'
+      - type: svggraph
+        name: Graph 3
+        x: '35'
+        y: '12'
+        width: '37'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTGRC
+        - type: INTEGER
+          name: rf_rate
+          value: '10'
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: ds.0.dataset_type
+          value: '0'
+        - type: STRING
+          name: ds.0.itemids.0._reference
+          value: GTITC._itemid
+        - type: STRING
+          name: ds.0.color.0
+          value: 8A53BC
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+      - type: itemnavigator
+        name: Choose item 4
+        x: '14'
+        y: '18'
+        width: '21'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTITD
+        - type: STRING
+          name: hostids._reference
+          value: GTHST._hostids
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '3'
+        - type: STRING
+          name: group_by.0.tag_name
+          value: component
+        - type: INTEGER
+          name: show_lines
+          value: '500'
+        - type: INTEGER
+          name: show_problems
+          value: '1'
+      - type: svggraph
+        name: Graph 4
+        x: '35'
+        y: '18'
+        width: '37'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: GTGRD
+        - type: INTEGER
+          name: rf_rate
+          value: '10'
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: ds.0.dataset_type
+          value: '0'
+        - type: STRING
+          name: ds.0.itemids.0._reference
+          value: GTITD._itemid
+        - type: STRING
+          name: ds.0.color.0
+          value: CD7227
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'

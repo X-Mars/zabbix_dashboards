@@ -1,0 +1,468 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: 数据中心大屏
+    auto_start: 'NO'
+    pages:
+    - name: 数据中心
+      widgets:
+      - type: honeycomb
+        name: 服务器 CPU 使用率
+        x: '0'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVCPU
+        - type: STRING
+          name: host_tags.0.tag
+          value: target
+        - type: INTEGER
+          name: host_tags.0.operator
+          value: '1'
+        - type: STRING
+          name: host_tags.0.value
+          value: linux
+        - type: STRING
+          name: items.0
+          value: CPU utilization
+        - type: INTEGER
+          name: primary_label_bold
+          value: '1'
+        - type: STRING
+          name: primary_label_color
+          value: 102A43
+        - type: STRING
+          name: secondary_label_color
+          value: 102A43
+        - type: STRING
+          name: bg_color
+          value: 0EC9AC
+        - type: INTEGER
+          name: interpolation
+          value: '0'
+        - type: STRING
+          name: thresholds.0.threshold
+          value: '70'
+        - type: STRING
+          name: thresholds.0.color
+          value: FFD54F
+        - type: STRING
+          name: thresholds.1.threshold
+          value: '90'
+        - type: STRING
+          name: thresholds.1.color
+          value: FF465C
+      - type: honeycomb
+        name: 服务器内存使用率
+        x: '36'
+        y: '0'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVMEM
+        - type: STRING
+          name: host_tags.0.tag
+          value: target
+        - type: INTEGER
+          name: host_tags.0.operator
+          value: '1'
+        - type: STRING
+          name: host_tags.0.value
+          value: linux
+        - type: STRING
+          name: items.0
+          value: Memory utilization
+        - type: INTEGER
+          name: primary_label_bold
+          value: '1'
+        - type: STRING
+          name: primary_label_color
+          value: 102A43
+        - type: STRING
+          name: secondary_label_color
+          value: 102A43
+        - type: STRING
+          name: bg_color
+          value: 0EC9AC
+        - type: INTEGER
+          name: interpolation
+          value: '0'
+        - type: STRING
+          name: thresholds.0.threshold
+          value: '70'
+        - type: STRING
+          name: thresholds.0.color
+          value: FFD54F
+        - type: STRING
+          name: thresholds.1.threshold
+          value: '90'
+        - type: STRING
+          name: thresholds.1.color
+          value: FF465C
+      - type: hostnavigator
+        name: 按群组选择目标
+        x: '0'
+        y: '5'
+        width: '14'
+        height: '12'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVHST
+        - type: INTEGER
+          name: status
+          value: '0'
+        - type: INTEGER
+          name: group_by.0.attribute
+          value: '0'
+        - type: STRING
+          name: host_tags.0.tag
+          value: target
+        - type: INTEGER
+          name: host_tags.0.operator
+          value: '1'
+        - type: STRING
+          name: host_tags.0.value
+          value: generic
+      - type: svggraph
+        name: 上联 1 流量
+        x: '14'
+        y: '5'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVNEA
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: legend_columns
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+        - type: STRING
+          name: lefty_min
+          value: '0'
+        - type: STRING
+          name: ds.0.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.0.items.0
+          value: 'Interface *1/1*: Bits received'
+        - type: STRING
+          name: ds.0.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.0.color
+          value: '008E83'
+        - type: INTEGER
+          name: ds.0.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: STRING
+          name: ds.1.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.1.items.0
+          value: 'Interface *1/1*: Bits sent'
+        - type: STRING
+          name: ds.1.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.1.color
+          value: 3478D3
+        - type: INTEGER
+          name: ds.1.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.1.width
+          value: '2'
+      - type: svggraph
+        name: 上联 2 流量
+        x: '43'
+        y: '5'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVNEB
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: legend_columns
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+        - type: STRING
+          name: lefty_min
+          value: '0'
+        - type: STRING
+          name: ds.0.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.0.items.0
+          value: 'Interface *1/2*: Bits received'
+        - type: STRING
+          name: ds.0.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.0.color
+          value: '008E83'
+        - type: INTEGER
+          name: ds.0.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: STRING
+          name: ds.1.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.1.items.0
+          value: 'Interface *1/2*: Bits sent'
+        - type: STRING
+          name: ds.1.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.1.color
+          value: 3478D3
+        - type: INTEGER
+          name: ds.1.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.1.width
+          value: '2'
+      - type: svggraph
+        name: 上联 3 流量
+        x: '14'
+        y: '9'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVNEC
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: legend_columns
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+        - type: STRING
+          name: lefty_min
+          value: '0'
+        - type: STRING
+          name: ds.0.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.0.items.0
+          value: 'Interface *1/3*: Bits received'
+        - type: STRING
+          name: ds.0.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.0.color
+          value: '008E83'
+        - type: INTEGER
+          name: ds.0.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: STRING
+          name: ds.1.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.1.items.0
+          value: 'Interface *1/3*: Bits sent'
+        - type: STRING
+          name: ds.1.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.1.color
+          value: 3478D3
+        - type: INTEGER
+          name: ds.1.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.1.width
+          value: '2'
+      - type: svggraph
+        name: 上联 4 流量
+        x: '43'
+        y: '9'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVNED
+        - type: STRING
+          name: time_period._reference
+          value: DASHBOARD._timeperiod
+        - type: INTEGER
+          name: legend_columns
+          value: '2'
+        - type: INTEGER
+          name: legend_lines
+          value: '2'
+        - type: STRING
+          name: lefty_min
+          value: '0'
+        - type: STRING
+          name: ds.0.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.0.items.0
+          value: 'Interface *1/4*: Bits received'
+        - type: STRING
+          name: ds.0.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.0.color
+          value: '008E83'
+        - type: INTEGER
+          name: ds.0.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.0.width
+          value: '2'
+        - type: STRING
+          name: ds.1.hosts.0
+          value: "*"
+        - type: STRING
+          name: ds.1.items.0
+          value: 'Interface *1/4*: Bits sent'
+        - type: STRING
+          name: ds.1.override_hostid._reference
+          value: TVHST._hostid
+        - type: STRING
+          name: ds.1.color
+          value: 3478D3
+        - type: INTEGER
+          name: ds.1.fill
+          value: '0'
+        - type: INTEGER
+          name: ds.1.width
+          value: '2'
+      - type: topitems
+        name: 机房温度
+        x: '14'
+        y: '13'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVTMP
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: "*Temperature*"
+      - type: topitems
+        name: UPS 电池电量
+        x: '43'
+        y: '13'
+        width: '29'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVUPS
+        - type: INTEGER
+          name: layout
+          value: '1'
+        - type: INTEGER
+          name: item_ordering_limit
+          value: '50'
+        - type: STRING
+          name: columns.0.items.0
+          value: "*UPS battery charge*"
+      - type: clock
+        name: 本地时间
+        x: '0'
+        y: '17'
+        width: '18'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVCLK
+        - type: INTEGER
+          name: clock_type
+          value: '1'
+        - type: INTEGER
+          name: show.0
+          value: '1'
+        - type: INTEGER
+          name: show.1
+          value: '2'
+        - type: INTEGER
+          name: show.2
+          value: '3'
+        - type: STRING
+          name: tzone_timezone
+          value: local
+      - type: clock
+        name: 意大利时间
+        x: '18'
+        y: '17'
+        width: '18'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVROM
+        - type: INTEGER
+          name: clock_type
+          value: '1'
+        - type: INTEGER
+          name: show.0
+          value: '1'
+        - type: INTEGER
+          name: show.1
+          value: '2'
+        - type: INTEGER
+          name: show.2
+          value: '3'
+        - type: STRING
+          name: tzone_timezone
+          value: Europe/Rome
+      - type: problems
+        name: 当前事件
+        x: '36'
+        y: '17'
+        width: '36'
+        height: '6'
+        fields:
+        - type: STRING
+          name: reference
+          value: TVPRB
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_lines
+          value: '10'

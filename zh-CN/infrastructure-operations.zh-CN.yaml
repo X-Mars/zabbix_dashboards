@@ -1,0 +1,190 @@
+---
+zabbix_export:
+  version: '8.0'
+  dashboards:
+  - name: 基础设施问题与大屏
+    auto_start: 'NO'
+    pages:
+    - name: 事件概览
+      widgets:
+      - type: problemsbysv
+        name: 问题级别分布
+        x: '0'
+        y: '0'
+        width: '72'
+        height: '3'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: problems
+        name: 当前问题
+        x: '0'
+        y: '3'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPCUR
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: problems
+        name: 事件历史
+        x: '0'
+        y: '11'
+        width: '72'
+        height: '8'
+        fields:
+        - type: STRING
+          name: reference
+          value: IPHIS
+        - type: INTEGER
+          name: show
+          value: '2'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+    - name: 运维大屏
+      widgets:
+      - type: systeminfo
+        name: 系统信息
+        x: '0'
+        y: '0'
+        width: '24'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCSYS
+      - type: problemsbysv
+        name: 问题级别分布
+        x: '24'
+        y: '0'
+        width: '48'
+        height: '4'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCSEV
+        - type: INTEGER
+          name: show_type
+          value: '1'
+      - type: tophosts
+        name: Linux CPU 使用率最高
+        x: '0'
+        y: '4'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCCPU
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: CPU 使用率最高
+        - type: STRING
+          name: columns.1.item
+          value: CPU utilization
+      - type: problems
+        name: 当前问题
+        x: '36'
+        y: '4'
+        width: '36'
+        height: '10'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCPRB
+        - type: INTEGER
+          name: show
+          value: '3'
+        - type: INTEGER
+          name: show_opdata
+          value: '2'
+        - type: INTEGER
+          name: show_lines
+          value: '20'
+      - type: tophosts
+        name: 可用内存最低
+        x: '0'
+        y: '9'
+        width: '36'
+        height: '5'
+        fields:
+        - type: STRING
+          name: reference
+          value: NCMEM
+        - type: STRING
+          name: tags.0.tag
+          value: target
+        - type: INTEGER
+          name: tags.0.operator
+          value: '1'
+        - type: STRING
+          name: tags.0.value
+          value: linux
+        - type: INTEGER
+          name: column
+          value: '1'
+        - type: INTEGER
+          name: order
+          value: '3'
+        - type: INTEGER
+          name: show_lines
+          value: '10'
+        - type: INTEGER
+          name: columns.0.data
+          value: '2'
+        - type: STRING
+          name: columns.0.name
+          value: 主机
+        - type: INTEGER
+          name: columns.1.data
+          value: '1'
+        - type: STRING
+          name: columns.1.name
+          value: 可用内存最低
+        - type: STRING
+          name: columns.1.item
+          value: Available memory in %
